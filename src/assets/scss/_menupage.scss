@@ -1,0 +1,113 @@
+@import "./variables"; // 確保可以使用變數
+
+.menu-page {
+  padding: 4rem 0;
+  .menu-title {
+    text-align: center;
+    padding: 2rem;
+    font-weight: bold;
+    font-size: 3rem;
+  }
+  .menu-search {
+    display: flex;
+    justify-content: center;
+    padding: 2rem;
+    
+    .search-input {
+      margin:0;
+      width:60%;
+      padding: 1rem;
+      font-size: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box;
+      transition: border-color 0.3s ease;
+      color:$placeholder;
+    }
+
+  }
+  
+  /* 主要菜單區塊 */
+  .menu-items {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); /* 確保項目均勻排列 */
+    gap: 1rem; /* 設定間隔 */
+    padding: 2rem;
+    box-sizing: border-box;
+  }
+
+  /* 單個菜單項目 */
+  .menu-item {
+    min-width: 450px; /* 讓項目至少有 250px，避免過小 */
+    display: flex; /* 讓內部的 .card 撐滿 */
+    justify-content: center; /* 確保內容置中 */
+  }
+
+  /* 卡片樣式 */
+  .card {
+    width: 100%; /* 讓卡片撐滿 menu-item，而不是固定 500px */
+    max-width: 450px; /* 限制最大寬度，避免過大 */
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    border: 1px solid #ddd;  /* 輕微邊框 */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* 輕微陰影 */
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out;
+
+    &:hover {
+      transform: scale(1.05);  /* 鼠標懸停時縮放效果 */
+    }
+  }
+
+  /* 卡片圖片 */
+  .img-fixed {
+    width: 100%;
+    height: 300px;  /* 固定高度 */
+    object-fit: contain;  /* 圖片保持比例 */
+    border-radius: 8px;  /* 圓角 */
+  }
+
+  /* 卡片內容 */
+  .card-body {
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;  /* 讓內容區塊有足夠的空間 */
+    height: 100%;  /* 確保內容區塊填滿卡片 */
+  }
+
+  /* 標題樣式 */
+  .card-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $primary;
+    padding: 1rem 0;
+  }
+
+  /* 價格文字樣式 */
+  .card-text {
+    font-size: 1.5rem;
+    color: $content;
+    padding-bottom: 1rem;
+  }
+
+  /* 按鈕樣式 */
+  .btn-primary {
+    margin-top: auto;  /* 按鈕放置於底部 */
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: white;
+    background-color: $primary;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    border: none; // **這行確保移除邊框，不知為啥有預設邊框，待確認**
+
+    &:hover {
+      background-color: $accent1;
+    }
+  }
+}

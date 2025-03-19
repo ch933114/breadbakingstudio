@@ -1,0 +1,113 @@
+@import "./variables"; // 確保可以使用變數
+
+nav {
+  
+  .navbar-container {
+    display: flex;
+    justify-content: space-between;
+    background-color: $primary;
+    align-items: center;
+    padding: 2rem 3rem;
+    position: relative;
+  }
+
+  .navbar-brand {
+    color: $primary-light;
+    font-size: 1.3rem;
+    font-weight: $font-weight-bold;
+    text-decoration: none;
+    transition: 0.3s;
+
+    &:hover {
+      color: $secondary;
+    }
+  }
+
+  .navbar-nav {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end;
+    width: 40%;
+    padding: 0;
+    margin: 0;
+
+    .nav-item {
+      margin: 0 1%;
+
+      .nav-link {
+        display: flex;
+        color: $primary-light;
+        font-size: 1.3rem;
+        text-decoration: none;
+        transition: background 0.3s;
+
+        &:hover {
+          color: $secondary;
+        }
+        .cart-badge {
+          background-color: $accent2;
+          height: 80%;
+          margin: auto;
+          color: white;
+          font-size: 12px;
+          padding: 3px 8px;
+          border-radius: 10%;
+        }
+      }
+    }
+  }
+
+  // 漢堡按鈕
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: $primary-light;
+  }
+
+  // 漢堡選單的 mask
+  .menu-mask {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 10;
+  }
+
+  @media (max-width: 1024px) {
+    .menu-toggle {
+      display: block;
+      z-index: 20;
+    }
+
+    .navbar-nav {
+      display: none;
+      background-color: $primary;
+      flex-direction: column;
+      position: absolute;
+      top: 100px;
+      right: 0;
+      width: 100%;
+      text-align: center;
+      padding: 1rem 0;
+      z-index: 20;
+
+      &.active {
+        display: flex;
+      }
+
+      .nav-item {
+        margin: 10px 0;
+      }
+    }
+
+    .menu-mask.active {
+      display: block;
+    }
+  }
+}

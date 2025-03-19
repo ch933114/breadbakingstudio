@@ -1,0 +1,78 @@
+@import "./variables"; // 確保可以使用變數
+
+.brand-story {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 600px;
+  overflow-x: clip;
+
+  .content {
+    padding: 8rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .text-block {
+    width: 45%;
+    height: auto;
+    padding: 3rem;
+    background: $primary;
+    border-radius: 10px;
+    margin: 0 auto;
+    position: relative;
+
+    h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      padding: 1.2rem;
+      color: white;
+    }
+
+    p {
+      font-size: 1.1rem;
+      color: white;
+      line-height: 1.6;
+      padding: 1.2rem;
+    }
+  }
+
+  .image-block {
+    position: absolute;
+    width: 25%;
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    &.left {
+      left: -5%;
+    }
+
+    &.right {
+      right: -5%;
+    }
+  }
+
+  // 小螢幕時隱藏左右圖片
+  @media (max-width: 1024px) {
+    .image-block {
+      display: none;
+    }
+
+    .text-block {
+      width: 80%; // 讓文字區塊變大，補上圖片消失後的空間
+      padding: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .text-block {
+      width: 90%;
+    }
+  }
+}

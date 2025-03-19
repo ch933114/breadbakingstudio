@@ -1,0 +1,48 @@
+@import "./variables"; // 確保可以使用變數
+
+.breadcrumb {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  width: 100%;
+  border-radius: 8px; // 圓角
+  font-size: 1rem;
+  padding: 8px;
+  box-sizing: border-box;
+
+  .breadcrumb-item {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    color: $primary-text;
+    transition: color 0.3s ease-in-out;
+
+    a {
+      text-decoration: none;
+      font-size: 1.1rem;
+      color: $dark-accent-color;
+      transition: color 0.3s ease-in-out;
+
+      &:hover {
+        color: $light-primary-color;
+      }
+    }
+
+    &.active {
+      font-weight: $font-weight-bold;
+      color: $primary-text;
+      cursor: default;
+    }
+
+    // 麵包屑的分隔符號「/」
+    &::after {
+      content: "/";
+      margin: 0 8px;
+      color: $primary-text;
+    }
+
+    &:last-child::after {
+      content: ""; // 最後一個不要顯示 "/"
+    }
+  }
+}

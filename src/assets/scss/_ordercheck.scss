@@ -1,0 +1,288 @@
+@import './variables';
+
+/* 主要容器 */
+.order-container {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* 步驟進度條 */
+.order-progress {
+  margin-top: 2%;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  
+  .progress-label {
+    margin: 0 2rem;
+    padding: 2rem;
+    width: 300px;
+    text-align: center;
+    font-size: 1.2rem;
+    color: white;
+    background-color: $primary;
+    border-radius: 5px;
+    cursor: pointer;
+    
+    &.active {
+      background-color: $accent2; /* 假設這是你預設的成功顏色 */
+    }
+  }
+}
+
+/* 步驟內容區域 */
+.order-confirm{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin : 2rem;
+  h2 {
+    font-size: 24px;
+    margin-bottom: 2rem;
+    color: $content; /* 可定義的主題顏色 */
+  }
+  .order-info {
+    display: flex;
+    gap : 2rem;
+
+    .cart-info {
+      background-color: white;
+      padding: 3rem;
+      width: 500px;
+      height: auto;
+
+      h3 {
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: 600;
+        padding-bottom: 1rem;
+      }
+
+      ul.order-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2rem;
+        border-bottom:1px solid black ;
+      }
+    
+      .order-item {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      .item-img{
+        width: 100px;
+        height: auto;
+      }
+      .item-info{
+        width: 400px;
+        text-align: right;
+      }
+      }
+      .order-total {
+        text-align: right;
+        font-weight: 600;
+        font-size: 1.5rem;
+        padding-bottom: 1.2rem;
+      }
+    }
+  }
+  .recipient-info {
+    padding: 3rem;
+    min-height: 400px;
+    width: 500px;
+    background-color: white;
+    h3 {
+      text-align: center;
+      font-size: 1.4rem;
+      font-weight: 600;
+      padding-bottom: 1rem;
+    }
+    .order-form {
+      .form-row {
+        display: flex;
+        flex-direction: column;
+      }
+      label {
+        font-size: 1rem;
+        padding: 0.5rem 0;
+        span {
+          color: red;
+        }
+      }
+      input {
+        width: auto;
+        padding: 0.5rem;
+      }
+      textarea {
+        width: auto;
+        padding: 0.5rem;
+      }
+    } 
+    
+  }
+}
+
+.button-group {
+  display: flex;
+  padding: 2rem;
+  gap: 2rem;
+}
+
+.remove-btn {
+  background-color: $danger; 
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  
+  &:hover {
+    background-color: darken($accent2, 10%);
+  }
+}
+
+.next-btn,
+.submit-btn,
+.reset-btn,
+.prev-btn,
+.back-btn {
+  background-color: $primary;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+
+  &:hover {
+    background-color: darken($secondary, 10%);
+  }
+}
+
+.prev-btn {
+  background-color: $primary; /* 假設你有定義次要顏色 */
+  
+  &:hover {
+    background-color: darken($secondary, 10%);
+  }
+}
+
+.reset-btn {
+  background-color: $danger; /* 重新開始的顏色 */
+  
+  &:hover {
+    background-color: darken($accent2, 10%);
+  }
+}
+
+.order-create {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin : 2rem;
+  .order-create-info {
+    display: flex;
+    gap: 1rem;
+    .cart-info-check {
+      background-color: white;
+      padding: 3rem;
+      width: 500px;
+      height: auto;
+  
+      ul.order-items {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        list-style: none;
+        padding: 0;
+        margin-bottom: 2rem;
+        border-bottom:1px solid black ;
+      }
+    
+      .order-item {
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      justify-content: center;
+      align-items: center;
+      padding: 12px;
+      .item-img{
+        width: 100px;
+        height: auto;
+      }
+      .item-info{
+        width: 400px;
+        text-align: right;
+      }
+      }
+      .order-total {
+        text-align: right;
+        font-weight: 600;
+        font-size: 1.5rem;
+        padding-bottom: 1.2rem;
+      }
+    }
+    .recipient-info-check {
+      padding: 3rem;
+      min-height: 400px;
+      width: 500px;
+      background-color: white;
+      h3 {
+        text-align: center;
+        font-size: 1.4rem;
+        font-weight: 600;
+        padding-bottom: 1rem;
+      }
+      .form-row {
+          display: flex;
+          flex-direction: column;
+        }
+        label {
+          font-size: 1rem;
+          padding: 0.5rem 0;
+          span {
+            color: red;
+          }
+      } 
+    }
+  }
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 2rem;
+    color: $content; /* 可定義的主題顏色 */
+  }
+  
+}
+
+.order-complete {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin : 2rem;
+
+  h2 {
+    font-size: 24px;
+    margin-bottom: 2rem;
+    color: $content; /* 可定義的主題顏色 */
+  }
+
+  p {
+    font-size: 1.2rem;
+  }
+}
+
+.warning-text {
+  color: $accent2;
+  font-size: 1rem;
+  text-align: center;
+  padding: 1rem;
+}

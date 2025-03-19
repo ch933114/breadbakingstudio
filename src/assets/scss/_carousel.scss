@@ -1,0 +1,60 @@
+.carousel {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+  
+    .slide {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; // 保持完整圖片，不拉伸
+      filter: brightness(0.9) contrast(1.1); // 柔和濾鏡，提升溫暖感
+    }
+  
+    /* ⬅️➡️ 左右切換按鈕 */
+    button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.3);
+      color: white;
+      border: none;
+      padding: 15px;
+      font-size: 30px;
+      cursor: pointer;
+      transition: 0.3s;
+  
+      &:hover {
+        background: rgba(0, 0, 0, 0.6);
+      }
+  
+      &.prev { left: 20px; }
+      &.next { right: 20px; }
+    }
+  
+    /* 🔘 進度指示點 */
+    .dots {
+      position: absolute;
+      bottom: 20px;
+      display: flex;
+      gap: 10px;
+  
+      span {
+        width: 12px;
+        height: 12px;
+        background-color: #d4a373;
+        border-radius: 50%;
+        cursor: pointer;
+        transition: 0.3s;
+  
+        &.active {
+          background-color: #6d4c41; // 深咖啡色
+          transform: scale(1.3);
+        }
+      }
+    }
+  }
+  

@@ -1,0 +1,84 @@
+.index-backg {
+  display: block;
+}
+
+/* 固定 Header */
+.header-wrapper {
+  width: 100%;
+  z-index: 1000;
+  transition: transform 0.3s ease-in-out;
+}
+
+/* 側欄樣式 */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -500px; /* 初始位置是隱藏的 */
+  width: 500px;
+  height: 100%;
+  background-color: white;
+  transition: right 0.3s ease;
+  z-index: 100;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar.active {
+  right: 0; /* 顯示側欄 */
+}
+
+/* 側欄標題區 */
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #f8f9fa;
+  border-bottom: 1px solid #ddd;
+}
+
+/* 側欄標題 */
+.sidebar-title {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* 側欄關閉按鈕 */
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: black;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: #ff4d4d;
+}
+
+/* 購物車內容區塊 */
+.sidebar-content {
+  flex-grow: 1;
+  overflow-y: auto; /* 內容過長時可滾動 */
+}
+
+/* 頁面內容避免被 Header 遮住 */
+.container-fluid {
+  min-height: 1000px;
+  width: 100%;
+}
+
+/* Footer 設置 */
+.footer {
+  position: relative;
+  text-align: center;
+  bottom: 0;
+  width: 100%;
+  background-color: $primary;
+  color: $placeholder;
+  padding: 6rem;
+  box-sizing: border-box;
+  font-size: 1.3rem;
+  line-height: 2;
+}
