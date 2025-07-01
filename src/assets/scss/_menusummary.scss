@@ -1,94 +1,244 @@
 @import "./variables"; // 確保可以使用變數
 
-.menu-summary {
-  padding: 4rem 0;
+.menu-carousel.fade-in {
+  opacity: 1;
+  animation: fade 1.2s linear 0s;
+}
+
+.menu-carousel {
+  opacity: 0;
   .menu-title {
-    text-align: center;
-    padding: 2rem;
     font-weight: bold;
-    font-size: 3rem;
-  }
-  
-  /* 主要菜單區塊 */
-  .menu-items {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); /* 確保項目均勻排列 */
-    gap: 1rem; /* 設定間隔 */
-    padding: 2rem;
+    font-size: $font-size-4xl;
+    margin-bottom: 1rem;
   }
 
-  /* 單個菜單項目 */
-  .menu-item {
-    min-width: 450px; /* 讓項目至少有 250px，避免過小 */
-    display: flex; /* 讓內部的 .card 撐滿 */
-    justify-content: center; /* 確保內容置中 */
+  .menu-board {
+    width: 100%;
+    height: auto;
+    background-color: $primary;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+    background-size: cover;
+    background-position: center center;
+    display: flex;
+    padding-bottom: 4rem;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+
+    .deco-bread1 {
+      position: absolute;
+      bottom: 20px;
+      right: 10px;
+      width: 80px;
+    }
+
+    .deco-bread2 {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      width: 80px;
+    }
+
+    h3 {
+      font-size: $font-size-4xl;
+      font-weight: bold;
+      color: $white;
+      margin: 2rem 0;
+    }
+
+    .new-breads {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      align-items: center;
+      padding: 0 1rem;
+      .new-bread {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 2rem;
+        .bread-des {
+          max-width: 300px;
+          h5 {
+            color: $secondary;
+            font-size: $font-size-2xl;
+            font-weight: bold;
+            margin-bottom: 0.8rem;
+          }
+          p {
+            color: $white;
+            font-size: $font-size-md;
+            line-height: 1.5;
+            text-align: justify;
+          } 
+        }
+        img {
+          width: 200px;
+        }
+
+      }
+      .new-bread:nth-child(even){
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  /* 輪播外框 */
+  .carousel-container {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); // 自動調整列數
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  /* 輪播軌道 */
+  .carousel-track {
+    transition: transform 0.5s ease-in-out;
+    width: 100%;
   }
 
   /* 卡片樣式 */
   .card {
-    width: 100%; /* 讓卡片撐滿 menu-item，而不是固定 500px */
-    max-width: 450px; /* 限制最大寬度，避免過大 */
     display: flex;
     flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100%;
     background-color: white;
-    border: 1px solid #ddd;  /* 輕微邊框 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* 輕微陰影 */
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
 
     &:hover {
-      transform: scale(1.05);  /* 鼠標懸停時縮放效果 */
+      transform: scale(1.03);
     }
-  }
 
-  /* 卡片圖片 */
-  .img-fixed {
-    width: 100%;
-    height: 300px;  /* 固定高度 */
-    object-fit: contain;  /* 圖片保持比例 */
-    border-radius: 8px;  /* 圓角 */
-  }
-
-  /* 卡片內容 */
+    /* 卡片內容 */
   .card-body {
-    padding: 1rem;
+    padding: 0.8rem;
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;  /* 讓內容區塊有足夠的空間 */
-    height: 100%;  /* 確保內容區塊填滿卡片 */
+    justify-content: space-between;
+    height: 100%;
   }
-
   /* 標題樣式 */
   .card-title {
-    font-size: 1.5rem;
+    font-size: $font-size-xl;
     font-weight: bold;
     color: $primary;
     padding: 1rem 0;
+    .title-link {
+      text-decoration: none;
+      color: $content;
+    }
   }
 
   /* 價格文字樣式 */
   .card-text {
-    font-size: 1.5rem;
+    font-size: $font-size-lg;
     color: $content;
     padding-bottom: 1rem;
   }
 
-  /* 按鈕樣式 */
-  .btn-primary {
-    margin-top: auto;  /* 按鈕放置於底部 */
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    background-color: $primary;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    border: none; // **這行確保移除邊框，不知為啥有預設邊框，待確認**
+  .card-img {
+    width:300px;
+    height:300px;
+    padding: 2rem;
+    object-fit: cover;
+  }
 
+}
+
+  /* 左右切換按鈕 */
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: black;
+    background-color: $white;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    font-size: $font-size-4xl;
+    border-radius: 5px;
     &:hover {
-      background-color: $accent1;
+      background: rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  .carousel-btn.left {
+    left: 3px;
+    z-index: 10;
+  }
+
+  .carousel-btn.right {
+    right: 3px;
+    z-index: 10;
+  }
+
+  @media (max-width: 1024px) {
+    .menu-board {
+      .new-breads {
+        flex-direction: column;
+        .new-bread {
+          flex-direction: column-reverse;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    .menu-title {
+        font-size: $font-size-3xl;
+        margin-bottom: 1rem;
+    }
+
+    .menu-board {
+      h3 {
+        font-size: $font-size-2xl;
+        margin: 1rem 0;
+      }
+
+      .deco-bread1 {
+        width: 30px;
+      }
+  
+      .deco-bread2 {
+        width: 30px;
+      }
+
+      .new-breads {
+        .new-bread {
+          .bread-des {
+            h5 {
+              font-size: $font-size-xl;
+              margin-bottom: 0.8rem;
+            }
+            p {
+              font-size: $font-size-sm;
+            } 
+          }
+          img {
+            width: 150px;
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 377px) {
+    .menu-board {
+      h3 {
+        font-size: $font-size-lg;
+      }
     }
   }
 }
+

@@ -1,72 +1,74 @@
 @import "./variables"; // 確保可以使用變數
 
 .menu-page {
-  padding: 4rem 0;
+  width: 100%;
   .menu-title {
     text-align: center;
-    padding: 2rem;
     font-weight: bold;
-    font-size: 3rem;
+    font-size: $font-size-3xl;
+    margin: 2rem 0;
   }
+
   .menu-search {
     display: flex;
     justify-content: center;
-    padding: 2rem;
-    
+
     .search-input {
-      margin:0;
-      width:60%;
+      margin: 0;
+      width: 60%;
       padding: 1rem;
-      font-size: 1rem;
+      font-size: $font-size-md;
       border: 1px solid #ddd;
       border-radius: 5px;
-      box-sizing: border-box;
       transition: border-color 0.3s ease;
-      color:$placeholder;
+      color: $primary;
     }
-
   }
-  
+
   /* 主要菜單區塊 */
   .menu-items {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(450px, 1fr)); /* 確保項目均勻排列 */
-    gap: 1rem; /* 設定間隔 */
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* 讓菜單根據螢幕大小自適應 */
+    gap: 1rem;
     padding: 2rem;
-    box-sizing: border-box;
+    max-width: 1296px;
+    margin: 0 auto;
   }
 
   /* 單個菜單項目 */
   .menu-item {
-    min-width: 450px; /* 讓項目至少有 250px，避免過小 */
-    display: flex; /* 讓內部的 .card 撐滿 */
-    justify-content: center; /* 確保內容置中 */
+    display: flex;
+    justify-content: center;
   }
 
   /* 卡片樣式 */
   .card {
-    width: 100%; /* 讓卡片撐滿 menu-item，而不是固定 500px */
-    max-width: 450px; /* 限制最大寬度，避免過大 */
+    width: 100%;
+    max-width: 100%;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     background-color: white;
-    border: 1px solid #ddd;  /* 輕微邊框 */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);  /* 輕微陰影 */
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
     transition: transform 0.2s ease-in-out;
+    border-radius: 10px;
 
     &:hover {
-      transform: scale(1.05);  /* 鼠標懸停時縮放效果 */
+      transform: scale(1.05);
+    }
+
+    .card-img {
+      width: 100%;
+      max-height: 200px;
+      padding: 1rem;
+      object-fit: contain;
     }
   }
 
-  /* 卡片圖片 */
-  .img-fixed {
-    width: 100%;
-    height: 300px;  /* 固定高度 */
-    object-fit: contain;  /* 圖片保持比例 */
-    border-radius: 8px;  /* 圓角 */
-  }
+
 
   /* 卡片內容 */
   .card-body {
@@ -74,40 +76,61 @@
     text-align: center;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;  /* 讓內容區塊有足夠的空間 */
-    height: 100%;  /* 確保內容區塊填滿卡片 */
+    justify-content: space-between;
+    gap: 0.5rem;
+    height: 100%;
+    width: 100%;
   }
 
   /* 標題樣式 */
   .card-title {
-    font-size: 1.5rem;
+    font-size: $font-size-xl;
     font-weight: bold;
     color: $primary;
-    padding: 1rem 0;
+
+    .title-link {
+      text-decoration: none;
+      color: $content;
+      &:hover {
+        color: $secondary;
+      }
+    }
   }
 
   /* 價格文字樣式 */
   .card-text {
-    font-size: 1.5rem;
+    font-size: $font-size-lg;
     color: $content;
-    padding-bottom: 1rem;
   }
 
-  /* 按鈕樣式 */
-  .btn-primary {
-    margin-top: auto;  /* 按鈕放置於底部 */
-    padding: 10px 20px;
-    font-size: 1rem;
-    font-weight: bold;
-    color: white;
-    background-color: $primary;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-    border: none; // **這行確保移除邊框，不知為啥有預設邊框，待確認**
+  .btn-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 
-    &:hover {
-      background-color: $accent1;
+  .search-alert {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: $font-size-xl;
+    padding: 10rem 0;
+  }
+
+  /* 🔹 RWD 調整 */
+  @media (max-width: 1024px) {
+    .menu-items {
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* 平板：2 列 */
+    }
+  }
+
+  @media (max-width: 768px) {
+    .menu-items {
+      grid-template-columns: 1fr; /* 手機：1 列 */
+    }
+
+    .search-input {
+      width: 80%; /* 搜尋框變大 */
     }
   }
 }

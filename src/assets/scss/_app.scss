@@ -1,19 +1,23 @@
+// 背景設定
 .index-backg {
-  display: block;
+  .toast {
+    position: fixed;
+    top: 10vh;
+    right: 5vw; 
+    background-color: $secondary;
+    color: $primary;
+    font-size: $font-size-md;
+    font-weight: 600;
+    padding: 1rem;
+    z-index: 30;
+  }
 }
 
-/* 固定 Header */
-.header-wrapper {
-  width: 100%;
-  z-index: 1000;
-  transition: transform 0.3s ease-in-out;
-}
-
-/* 側欄樣式 */
+// 側欄樣式
 .sidebar {
   position: fixed;
   top: 0;
-  right: -500px; /* 初始位置是隱藏的 */
+  right: -500px; 
   width: 500px;
   height: 100%;
   background-color: white;
@@ -25,51 +29,54 @@
 }
 
 .sidebar.active {
-  right: 0; /* 顯示側欄 */
+  right: 0;
 }
 
-/* 側欄標題區 */
+// 側欄標題區
 .sidebar-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 15px 20px;
+  padding: 1rem 1.2rem;
   background-color: #f8f9fa;
   border-bottom: 1px solid #ddd;
 }
 
-/* 側欄標題 */
+// 側欄標題
 .sidebar-title {
-  font-size: 1.2rem;
+  font-size: $font-size-2xl;
+  color: $primary;
   font-weight: bold;
 }
 
-/* 側欄關閉按鈕 */
+// 側欄關閉按鈕
 .close-btn {
   background: none;
   border: none;
-  font-size: 1.8rem;
-  color: black;
+  font-size: $font-size-2xl;
+  color: $primary;
   cursor: pointer;
+  &:hover {
+    color: #69806C;
+  }
 }
 
-.close-btn:hover {
-  color: #ff4d4d;
-}
-
-/* 購物車內容區塊 */
+// 購物車內容區塊
 .sidebar-content {
   flex-grow: 1;
-  overflow-y: auto; /* 內容過長時可滾動 */
+  overflow-y: auto;
 }
 
-/* 頁面內容避免被 Header 遮住 */
-.container-fluid {
-  min-height: 1000px;
-  width: 100%;
+// 主要內容區塊
+.main-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
 }
 
-/* Footer 設置 */
+// Footer 設置
 .footer {
   position: relative;
   text-align: center;
@@ -77,8 +84,32 @@
   width: 100%;
   background-color: $primary;
   color: $placeholder;
-  padding: 6rem;
-  box-sizing: border-box;
-  font-size: 1.3rem;
+  padding: 6rem 2rem;
+  font-size: $font-size-xl;
   line-height: 2;
+  .social-media {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0.8rem;
+      border-radius: 30px;
+      border: 1px solid #AAAA;
+      &:hover {
+        background-color: darken($color: #AAAA, $amount: 70);
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    right: -100%;
+  }
 }

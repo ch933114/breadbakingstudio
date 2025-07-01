@@ -1,105 +1,88 @@
 @import "./variables"; // 確保可以使用變數
 
 .cart-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     padding: 20px;
     color: $content;
-    margin: 0 auto;
     border-radius: 8px;
+    z-index: 20;
   }
   
   .cart-title {
-    font-size: 24px;
+    font-size: $font-size-2xl;
     font-weight: bold;
     margin-bottom: 20px;
     text-align: center;
   }
   
   .cart-empty {
-    position: relative;
-    text-align: center;
+    display: flex;
+    align-items: center;
     min-height: 500px;
-  }
-  
-  .cta-button {
-    position: absolute;
-    top:50%;
-    left: 50%;
-    transform: translate(-50%, -50%); // 再往左上移動自身的 50%
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    background-color: $primary;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-  
-    &:hover {
-      background-color: $accent1;
-    }
   }
   
   .cart-items {
     list-style: none;
     padding: 0;
     margin-top: 20px;
+    width: 100%;
   }
   
   .cart-item {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+    gap: 4rem;
+    justify-content: center;
     align-items: center;
     padding: 12px;
     background-color: white;
-    .cart-img{
-      width: 16%;
-      height: auto;
+    width: 100%;
+
+    .item-des {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 100px;
+      width: 40%;
+      height: 100%;
+      .cart-img{
+        width: 100%;
+        height: auto;
+        padding: 0.6rem;
+      }
     }
   }
   
   .item-info {
-    text-align: left;
-    font-size: 1.1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    width: 60%;
+    text-align: right;
+    font-size: $font-size-md;
     color: $content;
-  }
-  
-  .remove-button {
-    background-color:$danger;
-    font-size: 1rem;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
-  
-    &:hover {
-      background-color:$accent2;
+    .quantity-controls {
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: $font-size-lg;
+      .p-adj{
+        background-color: white;
+        border: none;
+      }
     }
   }
-  
+
   .total-price {
-    font-size: 1.6rem;
+    font-size: $font-size-2xl;
     font-weight: bold;
     text-align: right;
     margin-top: 20px;
     color: $content;
-  }
-
-  .quantity-controls {
-    display: flex;
-    justify-content: right;
-    align-items: center;
-    font-size: 1.1rem;
-    padding: 1rem 0;
-    .p-adj{
-      background-color: white;
-      border: none;
-      font-size: 1.1rem;
-    }
-  }
-  
-  .quantity-controls button {
-    margin: 0 5px;
   }
 
   .order-area {
@@ -108,7 +91,7 @@
     padding: 2rem;
     .cart-order{
       text-decoration: none;
-      font-size: 1rem;
+      font-size: $font-size-md;
       padding: 0.5rem 1rem;
       font-size: 1.2rem;
       background-color: $primary;
@@ -121,3 +104,17 @@
         }
     }
   }
+
+@media (max-width: 768px) {  
+  .cart-item {
+      gap: 1rem;
+  }
+
+  .item-info {
+    font-size: $font-size-sm;
+  }
+
+  .total-price {
+    font-size: $font-size-xl;
+  }
+}

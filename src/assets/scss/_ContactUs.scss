@@ -1,0 +1,125 @@
+.contact-area {
+  display: flex;
+  background-color: #5e5d5d;
+  height: 100%;
+  padding: 1rem 0;
+  .contact-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    position: relative;
+
+    .deco-image1 {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      width: 80px;
+    }
+
+    .deco-image2 {
+      position: absolute;
+      bottom: 20px;
+      right: 10px;
+      width: 80px;
+    }
+
+    .contact-des {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem 5rem;
+
+      h3 {
+        font-size: $font-size-3xl;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: $white;
+      }
+      p {
+        font-size: $font-size-xl;
+        line-height: 1.5;
+        color: $white;
+      }
+    }
+  }
+  .store-location {
+    width: 60%;
+    max-width: 100%;
+    overflow: hidden;
+    margin: 1rem;
+    position: relative;
+
+    .store-map {
+      width: 100%;
+      height: 400px;
+      border-radius: 10px;
+      z-index: 5;
+    }
+
+    .map-mask {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10;
+      background-color: rgba(0, 0, 0, 0.4); // 半透明黑色
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: opacity 0.3s;
+      border-radius: 10px;
+    }
+
+    .map-mask.hidden {
+      display: none;
+    }
+  }
+  @media (max-width: 1025px) {
+    & {
+      flex-direction: column;
+      align-items: center;
+      .contact-info {
+        width: 100%;
+        text-align: center;
+      }
+      .store-location {
+        width: 100%;
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    & {
+      flex-direction: column;
+      .contact-info {
+        .contact-des {
+          padding: 2rem 2rem;
+          h3 {
+            font-size: $font-size-2xl;
+          }
+          p {
+            font-size: $font-size-sm;
+          }
+        }
+        .deco-image1 {
+          width: 35px;
+        }
+
+        .deco-image2 {
+          width: 35px;
+        }
+      }
+      .store-location {
+        .store-map {
+          height: 300px;
+        }
+      }
+    }
+  }
+}

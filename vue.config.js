@@ -1,5 +1,5 @@
 const { defineConfig } = require('@vue/cli-service');
-const webpack = require('webpack');
+const webpack = require('webpack'); // 引入 webpack
 
 module.exports = defineConfig({
   transpileDependencies: true,
@@ -10,4 +10,7 @@ module.exports = defineConfig({
       }),
     ],
   },
+  publicPath: process.env.NODE_ENV === 'production'
+    ? '/breadbakingstudio/'  // 這是你部署到 GitHub Pages 的路徑
+    : '/'
 });

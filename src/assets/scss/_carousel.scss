@@ -1,11 +1,68 @@
-.carousel {
-    position: relative;
-    width: 100%;
-    height: 80vh;
+.ig-template {
+  margin: 0 auto;
+  height: calc(100vh - 68.38px);
+  padding: 1rem;
+  box-shadow: 1px 1px 15px 5px rgba(0, 0, 0, 0.2);
+  font-size: $font-size-md;
+
+  .article-header {
     display: flex;
-    justify-content: center;
     align-items: center;
-    overflow: hidden;
+    justify-content: space-between;
+    padding-bottom: 1rem;
+    .ig-user {
+      display: flex;
+      align-items:center;
+      gap: 1rem;
+      img {
+        width: 40px;
+      }
+      p {
+        line-height:1.5;
+      }
+      .location {
+        font-size: $font-size-xs;
+      }
+    }
+    .article-btn {
+        padding: 0.5rem;
+        text-align: center;
+     }
+  }
+  .carousel {
+    width: 100%;
+    height: 62vh;
+  }
+  .article-des {
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+    padding-bottom: 1rem;
+    .des-btn {
+      display: flex;
+      align-items:center;
+      padding-top: 0.8rem;
+      gap: 1.2rem;
+      img {
+        width: 30px;
+      }
+    }
+    .like-count {
+      font-weight: bold;
+    }
+  }
+}
+
+.carousel {
+  position: relative;
+  width:80%;
+  height: 60vh;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border-radius: 10px;
   
     .slide {
       width: 100%;
@@ -14,28 +71,34 @@
       filter: brightness(0.9) contrast(1.1); // 柔和濾鏡，提升溫暖感
     }
   
-    /* ⬅️➡️ 左右切換按鈕 */
+    // 左右切換按鈕
     button {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0);
       color: white;
       border: none;
-      padding: 15px;
-      font-size: 30px;
+      border-radius: 5px;
+      padding: 0.8rem 0.5rem;
+      font-size: $font-size-xl;
       cursor: pointer;
       transition: 0.3s;
   
       &:hover {
         background: rgba(0, 0, 0, 0.6);
       }
-  
-      &.prev { left: 20px; }
-      &.next { right: 20px; }
+
+      &.prev { 
+        left: 20px; 
+      }
+
+      &.next { 
+        right: 20px; 
+      }
     }
   
-    /* 🔘 進度指示點 */
+    // 進度指示點
     .dots {
       position: absolute;
       bottom: 20px;
@@ -56,5 +119,31 @@
         }
       }
     }
+}
+
+@media (max-width: 768px) {
+  .ig-template {
+    padding: 1rem;
+    font-size: $font-size-sm;
+    height: auto;
+    .carousel {
+      height: 300px;
+      button {
+        font-size: $font-size-md;
+        &.prev {
+          left: 8px;
+        }
+        &.next {
+          right: 8px;
+        }
+      }
+      .dots {
+        span {
+          width: 8px;
+          height: 8px;
+        }
+      }
+    }
   }
+}
   

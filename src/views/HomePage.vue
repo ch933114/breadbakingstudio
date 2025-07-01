@@ -1,47 +1,43 @@
 <template>
-  <div>
-    <div>
+  <div class="home-pg">
+    <!-- 大圖輪播 -->
+    <div class="pg-full">
       <CarouselPage />
     </div>
-    <div>
+    <!-- 品牌故事 -->
+    <div class="pg-full">
       <AnimatedPart />
     </div>
-    <div>
-      <NewsList :news="newsData" :limit="4" :showMore="true" />
+    <!-- 最新消息 -->
+    <div class="pg-content">
+      <NewsSummary/>
     </div>
-    <!-- 顯示菜單摘要 -->
-    <div class="container mt-4">
-      <div class="row">
-         <!-- 引入 MenuSummary 並傳遞菜單資料 -->
-         <MenuSummary :limit="4" />
-      </div>
+    <!-- 精選菜單 -->
+    <div class="pg-content">
+      <MenuSummary limit="4" />
     </div>
-    <div>
-      <StoreLocation />
+    <!-- 常見QA -->
+    <div class="pg-content">
+      <AccordionArea/>
+    </div>
+    <!-- 訂閱我們 -->
+    <div class="pg-content">
+      <SubscribeMe />
+    </div>
+    <div class="ai-chat">
+      <p>BBS LINE AI 客服 !</p>
+      <a href="https://line.me/R/ti/p/@411jrvtx"><img src="img/LINE_logo.webp" alt="BBS的LINE官方"></a>
     </div>
   </div>
 </template>
 
-<script>
-import CarouselPage from '../components/CarouselPage.vue';
-import { inject } from 'vue';  // 引入 inject
-import NewsList from '../components/NewsList.vue';
-import MenuSummary from '../components/MenuSummary.vue';
-import AnimatedPart from '../components/AnimatedPart.vue';
-import StoreLocation from '../components/StoreLocation.vue';
+<script setup>
+import CarouselPage from "../components/CarouselPage.vue"
+import NewsSummary from "@/components/NewsSummary.vue"
+import MenuSummary from "../components/MenuSummary.vue"
+import AnimatedPart from "../components/AnimatedPart.vue"
+import SubscribeMe from "../components/SubscribeMe.vue"
+import AccordionArea from '../components/AccordionArea.vue'
 
-export default {
-  components: { CarouselPage, NewsList, MenuSummary,AnimatedPart,StoreLocation},
-  setup() {
-    // 使用 inject 來獲取父組件提供的 newsData
-    const newsData = inject('newsData');  
-
-    // 如果 newsData 為 undefined，則可以提供一個默認值
-    if (!newsData) {
-      console.warn('newsData is not provided!');
-    }
-
-    return { newsData };
-  },
-};
 </script>
+ 

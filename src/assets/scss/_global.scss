@@ -49,9 +49,13 @@ table {
 	border-spacing: 0;
 }
 
+*,*:before,*:after {
+	box-sizing: border-box;
+}
+
 // 🌎 全域 HTML & Body 樣式
 html {
-    font-size: 18px; // 預設字體大小
+    font-size: $font-family-base; // 預設字體大小
     scroll-behavior: smooth; // 平滑滾動
 }
 
@@ -59,6 +63,127 @@ body {
     font-family: $font-family-base;
     font-size: $font-size-base;
     line-height: $line-height-base;
-    color: $primary-text;
+    color: $content;
     background-color: $secondary-light;
+}
+
+button {
+	border: none;
+	cursor: pointer;
+}
+
+.btn-primary {
+	text-decoration: none;
+	padding: 0.8rem 1.2rem;
+	background-color: $accent1;
+	color: white;
+	border-radius: 5px;
+	font-size: 1rem;
+	font-weight: 600;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	&:hover	{
+		background-color: #69806C;
+	}	
+	&:disabled {
+		background-color: #ADADAD;
+	}
+}
+
+.btn-secondary {
+	text-decoration: none;
+	padding: 0.8rem 1.2rem;
+	background-color: $primary-light;
+	color: $primary;
+	border-radius: 5px;
+	font-size: 1rem;
+	font-weight: 600;
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+	
+	&:hover	{
+		background-color: #69806C;
+	}	
+	&:disabled {
+		background-color: #ADADAD;
+	}
+}
+
+.remove-button {
+    background-color:$danger;
+    font-size: 1rem;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+  
+    &:hover {
+      background-color:$accent2;
+    }
+  }
+
+.button-group {
+	display: flex;
+	padding: 2rem;
+	gap: 2rem;
+}
+
+// 區塊漸入動畫
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(100px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+// 流動變色文字特效
+.boujee-text {
+	--bg-size: 400%;
+	--color-one: hsl(15 90% 55%);
+	--color-two: hsl(40 95% 55%);
+	font-size: clamp(3rem, 25vmin, 8rem);
+	background: linear-gradient(
+				  90deg,
+				  var(--color-one),
+				  var(--color-two),
+				  var(--color-one)
+				) 0 0 / var(--bg-size) 100%;
+	color: transparent;
+	background-clip: text;
+	-webkit-background-clip: text;
+	animation: move-bg 8s infinite linear;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.boujee-text {
+	  animation: move-bg 8s linear infinite;
+	}
+	@keyframes move-bg {
+	  to {
+		background-position: var(--bg-size) 0;
+	  }
+	}
+}
+
+// 跑馬燈動畫
+@keyframes marquee {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(180%);
+  }
+}
+
+// 閃爍動畫
+@keyframes blink {
+	0%,100% {
+	  opacity:0;
+	}
+	50% {
+	  opacity:1;
+	}
 }

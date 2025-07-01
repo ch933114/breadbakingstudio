@@ -1,0 +1,141 @@
+.subscribe-area {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transform: scale(0);
+    margin: 0 auto;
+    border-radius: 10px;
+    opacity: 0;
+    transition: transform 3s ease, opacity 3s ease;
+    background-color: $primary;
+    overflow: hidden;
+
+    &.show {
+        opacity: 1;
+        transform: scale(1);
+    }
+
+    img {
+        margin: 2rem;
+        width: 40%;
+        height: 360px;
+        border-radius: 5px;
+        transition: all 3s ease 0s;
+        transform: translateX(-1800px);
+    }
+
+    &.show img {
+        transform: translateX(0);
+    }
+
+    .subscribe-form {
+        padding: 6rem 4rem;
+        width: 60%;
+        height: 100%;
+        border-radius: 0px 10px 10px 0px;
+        transition: transform 3s ease 0s;
+        transform: translateY(1800px);
+
+        .subscribe-title {
+            font-size: $font-size-4xl;
+            color: $secondary;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: $font-size-2xl;
+            color: $white;
+            margin-bottom: 2rem;
+        }
+        .input-area {
+            display: flex;
+            padding: 0.8rem 1rem;
+            border-radius: 40px;
+            background-color: $white;
+            input {
+                border: unset;
+                width: 75%;
+                font-size: $font-size-xl;
+            }
+            input:focus {
+                outline: none;
+            }
+            .subscribe-btn {
+                all: unset;
+                width: 25%;
+                background-color: $primary;
+                text-align: center;
+                color: $white;
+                padding: 0.5rem;
+                border-radius: 20px;
+                cursor: pointer;
+                &:hover {
+                    background-color: $secondary;
+                }
+                &:active {
+                    background-color: darken($secondary,20%);
+                }
+            }
+        }
+    }
+    &.show .subscribe-form {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 1200px) {
+    .subscribe-area.show {
+        flex-direction: column;
+        min-height: 300px;
+        transition: unset;
+        img {
+          display: none;
+        }
+        .subscribe-form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+            transition: none;
+        }
+      }
+    
+}
+
+@media (max-width: 600px) {
+    .subscribe-area.show {
+      flex-direction: column;
+      padding: 2rem 0;
+      img {
+        display: none;
+      }
+      .subscribe-form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 1.5rem;
+        transition: none;
+        h3 {
+            font-size: $font-size-3xl;
+        }
+        p {
+            font-size: $font-size-md;
+        }
+        .input-area {
+            padding: 0.8rem;
+            width: 100%;
+            input {
+               width: 60%;
+               padding: 0.2rem;
+               font-size: $font-size-xs;
+            }
+            .subscribe-btn {
+                width: 40%;
+                font-size: $font-size-xs;
+            }
+        }
+      }
+    }
+}

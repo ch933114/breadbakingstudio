@@ -1,0 +1,93 @@
+@import "./variables"; // 確保可以使用變數
+
+.about-store {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  .store-board {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    height: calc(100vh - 68.37px);
+    background-color: $accent1;
+    color: white;
+    width: 100%;
+    position: relative;
+
+    h1 {
+      padding: 2rem;
+      z-index: 10;
+      font-weight: bold;
+      font-size: $font-size-3xl;
+      border: 7px double $white;
+    }
+    .bg-img {
+      position: absolute;
+      max-height: 100%;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+     }
+     .bg-mask {
+      position: absolute;
+      max-height: 100%;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 2;
+      background-color: rgba(44, 44, 44, 0.8);
+     }
+
+  }
+  .store-story {
+    max-width: 1296px;
+    padding: 0 2rem 2rem 2rem;
+    text-align:justify;
+    .story-title {
+      font-weight: bold;
+      font-size: $font-size-4xl;
+    }
+    p {
+      font-size: $font-size-md;
+      padding: 1rem 0;
+    }
+    h3 {
+      color: rgb(119, 81, 65);
+      font-weight: bold;
+      font-size: $font-size-2xl;
+    }
+    ul {
+      display: inline-block;
+      background-color: rgba(218, 181, 127, 0.455) ;
+      padding: 2rem;
+      border-radius: 10px;
+      line-height: 2;
+      font-size: $font-size-sm;
+    }
+  }
+
+  @media (max-width: 1025px) {
+    .store-board {
+      h1 {
+        text-align: center;
+        border: none;
+      }
+    }
+    .store-story {
+      padding: 0 1rem 1rem 1rem;
+      width: 100%;
+    }
+  }
+}

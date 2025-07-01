@@ -5,11 +5,12 @@
   display: flex;
   align-items: center;
   width: 100%;
-  min-height: 600px;
+  height: 100%;
   overflow-x: clip;
+  margin: 0 auto;
+  padding: 6rem 0;
 
   .content {
-    padding: 8rem 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -17,9 +18,9 @@
   }
 
   .text-block {
-    width: 45%;
-    height: auto;
-    padding: 3rem;
+    width: 50%;
+    height: 100%;
+    padding: 5rem 3rem;
     background: $primary;
     border-radius: 10px;
     margin: 0 auto;
@@ -27,22 +28,39 @@
 
     h2 {
       text-align: center;
-      font-size: 2.5rem;
-      padding: 1.2rem;
-      color: white;
+      font-weight: bold;
+      font-size: $font-size-3xl;
+      padding: 1rem;
+      color: $secondary;
     }
 
     p {
-      font-size: 1.1rem;
+      font-size: $font-size-xl;
       color: white;
-      line-height: 1.6;
-      padding: 1.2rem;
+      line-height: 1.5;
+      padding: 0 1rem 1rem 1rem;
+      text-align: justify;
+    }
+
+    .deco-bread1 {
+      position: absolute;
+      bottom: 20px;
+      right: 10px;
+      width: 80px;
+    }
+
+    .deco-bread2 {
+      position: absolute;
+      top: 20px;
+      left: 10px;
+      width: 80px;
     }
   }
 
   .image-block {
-    position: absolute;
-    width: 25%;
+    opacity: 0;
+    max-width: 23%;
+    transition: transform 1s ease-out, opacity 1s ease-out; /* 動畫過渡時間 */
 
     img {
       width: 100%;
@@ -50,11 +68,25 @@
     }
 
     &.left {
-      left: -5%;
+      position: absolute;
+      left: 0;
+      transform: translateX(-50%);
+    }
+  
+    &.right {
+      position: absolute;
+      right: 0;
+      transform: translateX(50%);
+    }
+  
+    &.left.active {
+      opacity: 1;
+      transform: translateX(-20%);
     }
 
-    &.right {
-      right: -5%;
+    &.right.active {
+      opacity: 1;
+      transform: translateX(20%);
     }
   }
 
@@ -65,14 +97,31 @@
     }
 
     .text-block {
-      width: 80%; // 讓文字區塊變大，補上圖片消失後的空間
-      padding: 2rem;
+      width: 80%;
     }
   }
+}
 
-  @media (max-width: 768px) {
+@media (max-width: 768px) {
+  .brand-story {
+    margin: 0 auto;
+    padding: 3rem 0;
     .text-block {
       width: 90%;
+      padding: 1.5rem;
+      h2 {
+        font-size: $font-size-2xl;
+      }
+      p {
+        font-size: $font-size-lg;
+      }
+      .deco-bread1 {
+        width: 40px;
+      }
+  
+      .deco-bread2 {
+        width: 40px;
+      }
     }
   }
 }
